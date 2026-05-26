@@ -7,36 +7,88 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- النجوم المتحركة -->
+    <div class="stars-container">
+        <div class="star">⭐</div>
+        <div class="star">✨</div>
+        <div class="star">🌟</div>
+        <div class="star">💫</div>
+        <div class="star">⭐</div>
+        <div class="star">✨</div>
+        <div class="star">🌟</div>
+        <div class="star">💫</div>
+        <div class="star">⭐</div>
+        <div class="star">✨</div>
+        <div class="star">🌟</div>
+        <div class="star">💫</div>
+        <div class="star">⭐</div>
+        <div class="star">✨</div>
+        <div class="star">🌟</div>
+        <div class="star">💫</div>
+    </div>
+
     <div class="container">
         <div class="logo">
-            <h1>كاستيللو للدهانات</h1>
-            <p class="tagline">أفضل أنواع الدهانات والطلاءات</p>
+            <h1>🎨 كاستيللو للدهانات 🎨</h1>
+            <p class="tagline">ألوان brillante للمباني السعيدة</p>
+        </div>
+
+        <div class="celebration-box">
+            <div class="fez-icon">🧆</div>
+            <h2>🐑 Eid Mubarak 🐑</h2>
+            <p class="subtitle">كل عام وأنتم بخير وح�</ربا م</p>
         </div>
 
         <div class="card" id="greetingCard">
-            <div class="content">
-                <h2>🎉 بعيد الأضحى المبارك 🎉</h2>
-                <p class="subtitle">نهنئكم بحلول عيد الأضحى المبارك</p>
-                
-                <form id="nameForm">
-                    <input type="text" id="clientName" placeholder="أدخل اسمك هنا" required>
-                    <button type="submit">🎊 تهانينا لك</button>
-                </form>
+            <div class="form-header">
+                <span class="icon">🎊</span>
+                <span>أدخل اسمك للتهنئة</span>
+                <span class="icon">🎊</span>
             </div>
+            
+            <form id="nameForm">
+                <div class="input-group">
+                    <input type="text" id="clientName" placeholder="اسمك الكريم" required>
+                    <span class="input-icon">👤</span>
+                </div>
+                <button type="submit" class="submit-btn">
+                    <span>🎉</span> تهانينا <span>🎉</span>
+                </button>
+            </form>
         </div>
 
         <div class="card hidden" id="resultCard">
-            <div class="content">
-                <div class="eid-mubarak">🐏عيد الأضحى المبارك🐏</div>
-                <h2 class="personal-greeting">
-                    كل عام وأنتم بخير يا <span id="showName"></span> 🎊
-                </h2>
-                <p class="message">
-                    من عائلة كاستيللو للدهانات<br>
-                    نتمنى لكم أعياداً مليئة بالفرح والسرور
-                </p>
-                <button onclick="resetForm()" class="reset-btn">🎁 تهاني جديدة</button>
+            <div class="success-animation">
+                <span>🎊</span>
+                <span>🎉</span>
+                <span>🎊</span>
             </div>
+            
+            <div class="eid-display">
+                <h2>🐏عيد الأضحى المبارك🐏</h2>
+            </div>
+            
+            <h3 class="personal-greeting">
+                كل عام وأنت بخير يا <span id="showName"></span> 🎊✨
+            </h3>
+            
+            <p class="message">
+                من عائلة <strong>كاستيللو للدهانات</strong><br>
+                نتمنى لك أعياداً مليئة بالفرح والسرور<br>
+                وكل لحظاتك تكون 🇸🇦🇸🇦
+            </p>
+            
+            <div class="footer-message">
+                <p>🎈 happy Eid 🎈</p>
+            </div>
+            
+            <button onclick="resetForm()" class="reset-btn">
+                <span>🎁</span> تهاني جديدة <span>🎁</span>
+            </button>
+        </div>
+
+        <div class="footer">
+            <p>كاستيللو للدهانات -Painting Excellence🎨</p>
         </div>
     </div>
 
