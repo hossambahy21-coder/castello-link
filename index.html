@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Castello Eid</title>
+<title>كاستيلو | عيد الأضحى</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 
@@ -28,7 +29,7 @@ background:#12010c;
 position:relative;
 }
 
-/* الخلفية المحسنة */
+/* الخلفية */
 
 body::before{
 content:'';
@@ -36,78 +37,77 @@ position:fixed;
 inset:0;
 
 background:
-linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.35)),
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
 url('bg.jpg');
 
 background-position:center;
 background-size:cover;
 background-repeat:no-repeat;
 
-filter:
-brightness(1.05)
-contrast(1.1)
-saturate(1.08);
-
-transform:scale(1.05);
-
-opacity:.32;
+opacity:.88;
 
 z-index:-2;
 }
 
-/* زخرفة خفيفة */
+/* تأثير ذهبي */
 
 body::after{
 content:'';
 position:fixed;
 inset:0;
+
 background:
 radial-gradient(circle at top right,
-rgba(255,215,120,.12),
+rgba(255,215,120,.18),
 transparent 35%);
+
 z-index:-1;
 }
 
 /* الكارت */
 
 .container{
-width:100%;
-max-width:500px;
+
+width:95%;
+max-width:950px;
+min-height:90vh;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 
 background:rgba(255,255,255,.08);
 
 border:1px solid rgba(255,255,255,.15);
 
-backdrop-filter:blur(8px);
+backdrop-filter:blur(10px);
 
-border-radius:30px;
+border-radius:35px;
 
-padding:30px 25px;
+padding:45px 35px;
 
 text-align:center;
 
 box-shadow:
-0 10px 40px rgba(0,0,0,.35);
+0 15px 50px rgba(0,0,0,.45);
 
 }
 
 /* اللوجو */
 
 .logo{
-width:180px;
-margin:auto;
-margin-bottom:20px;
-display:block;
+width:220px;
+margin-bottom:25px;
 }
 
 /* العنوان */
 
 .title{
-font-size:58px;
-font-weight:800;
-line-height:1.1;
-color:#d49a33;
-margin-bottom:10px;
+font-size:95px;
+font-weight:900;
+line-height:1;
+margin-bottom:20px;
 }
 
 .title span{
@@ -115,53 +115,72 @@ display:block;
 color:#ff5a1f;
 }
 
+.title{
+color:#d9a441;
+}
+
 /* النص */
 
 .desc{
-font-size:22px;
-line-height:1.9;
+font-size:34px;
+line-height:2;
 color:#fff;
-margin-bottom:25px;
+margin-bottom:35px;
+max-width:850px;
 }
 
-/* الصورة */
+/* صورة الشخص */
 
 .person{
-width:100%;
-max-width:340px;
-margin:auto;
-display:block;
 
-border-radius:25px;
+width:100%;
+max-width:450px;
+
+border-radius:30px;
 
 filter:
-drop-shadow(0 10px 25px rgba(0,0,0,.45));
+drop-shadow(0 10px 30px rgba(0,0,0,.5));
+
+margin-bottom:25px;
 
 }
 
 /* الاسم */
 
 .name{
-font-size:44px;
-font-weight:800;
+font-size:70px;
+font-weight:900;
 color:#fff;
-margin-top:20px;
+margin-bottom:15px;
 }
 
+/* الوظيفة */
+
 .job{
-font-size:24px;
-color:#e7c37c;
-margin-top:10px;
-line-height:1.7;
+font-size:34px;
+line-height:1.8;
+color:#f0d18d;
+margin-bottom:30px;
 }
 
 /* الفوتر */
 
 .footer{
-margin-top:25px;
-font-size:20px;
+font-size:28px;
 color:#fff;
-opacity:.9;
+position:relative;
+padding-top:15px;
+}
+
+.footer::before{
+content:'';
+position:absolute;
+top:0;
+right:50%;
+transform:translateX(50%);
+width:220px;
+height:2px;
+background:#d9a441;
 }
 
 /* موبايل */
@@ -169,24 +188,37 @@ opacity:.9;
 @media(max-width:768px){
 
 .container{
-padding:25px 18px;
+padding:30px 20px;
 border-radius:25px;
 }
 
+.logo{
+width:150px;
+}
+
 .title{
-font-size:44px;
+font-size:55px;
 }
 
 .desc{
-font-size:18px;
+font-size:22px;
+line-height:1.8;
+}
+
+.person{
+max-width:280px;
 }
 
 .name{
-font-size:34px;
+font-size:42px;
 }
 
 .job{
-font-size:19px;
+font-size:24px;
+}
+
+.footer{
+font-size:20px;
 }
 
 }
@@ -198,29 +230,36 @@ font-size:19px;
 
 <div class="container">
 
+<!-- اللوجو -->
 <img src="logo.png" class="logo">
 
+<!-- العنوان -->
 <h1 class="title">
 <span>عيد</span>
 الأضحى
 </h1>
 
+<!-- النص -->
 <p class="desc">
 كل عام وأنتم بخير بمناسبة عيد الأضحى المبارك
-أعاده الله عليكم بالخير والبركات
+أعاده الله علينا وعليكم بالخير والبركات
 </p>
 
+<!-- صورة الشخص -->
 <img src="person.png" class="person">
 
+<!-- الاسم -->
 <h2 class="name">
 المهندس عامر
 </h2>
 
+<!-- الوظيفة -->
 <p class="job">
 رئيس مجلس الإدارة<br>
 لشركة كاستيلو للدهانات
 </p>
 
+<!-- الفوتر -->
 <div class="footer">
 شركاء النجاح في دهانات كاستيلو
 </div>
