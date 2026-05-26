@@ -3,135 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تهنئة من شركة كاستيللو للدهانات</title>
-    <style>
-        /* تنسيق الألوان والخلفية */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-            color: #333;
-        }
-
-        /* كارت التهنئة */
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            border-top: 8px solid #d4af37; /* لون ذهبي يعبر عن الفخامة */
-            position: relative;
-            z-index: 10;
-        }
-
-        /* اسم الشركة */
-        .logo-text {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: #1a365d;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #718096;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        /* نص التهنئة */
-        h1 {
-            color: #2d3748;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #4a5568;
-            margin-bottom: 30px;
-        }
-
-        /* زر تفاعلي */
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 12px 35px;
-            font-size: 1.1rem;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            font-weight: bold;
-        }
-
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
-        }
-
-        /* تأثير الألوان المتساقطة */
-        canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-    </style>
+    <title>عيد أضحى مبارك من دهنات كاستيللو</title>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-
-    <canvas id="canvas"></canvas>
-
-    <div class="card">
-        <!-- هويتك التجارية -->
-        <div class="logo-text">كاستيللو</div>
-        <div class="subtitle">لـلـدهـانــات والـديـكـور</div>
+    
+    <div class="hero-wrapper">
+        <!-- Star decorations -->
+        <div class="star star-1"></div>
+        <div class="star star-2"></div>
+        <div class="star star-3"></div>
         
-        <hr style="border: 0; height: 1px; background: #e2e8f0; margin-bottom: 30px;">
-
-        <!-- رسالة التهنئة (تقدر تعدلها حسب المناسبة) -->
-        <h1>كل عام وأنتم بخير! ✨</h1>
-        <p>
-            عملائنا الكرام، شركاء النجاح.. <br>
-            بمناسبة الأيام المباركة، تتمنى لكم عائلة <strong>"كاستيللو"</strong> أوقاتاً مليئة بالبهجة والألوان الجميلة في حياتكم. شكراً لثقتكم الغالية بنا دائماً.
-        </p>
-
-        <!-- زر يضيف بهجة للموقع عند الضغط عليه -->
-        <button class="btn" onclick="celebrate()">اضغط لتلوين يومك 🎨</button>
+        <main class="container">
+            <div class="logo-container">
+                <!-- Using the image provided from prompt context -->
+                <img src="https://i.imgur.com/5wF8X9l.png" alt="Castello Logo" class="main-logo">
+            </div>
+            
+            <div class="content-card">
+                <h1>عشان العيد، نهنئك!</h1>
+                <p class="subtitle">أدخل اسمك عشان تشوف رسالة التهنية الخاصة بيك.</p>
+                
+                <form id="nameForm" class="form-container">
+                    <div class="input-group">
+                        <input type="text" id="customerName" placeholder="اكتب اسمك الجدي..." required autocomplete="off">
+                        <i class="fa-solid fa-user input-icon"></i>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        ابدأ التهنية
+                        <i class="fa-solid fa-circle-right"></i>
+                    </button>
+                </form>
+            </div>
+        </main>
+        
+        <footer>
+            <p>© 2024 دهنات كاستيللو - شركاء النجاح</p>
+        </footer>
     </div>
-
-    <!-- كود الجافا سكريبت لتأثير الألوان الاحتفالية -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-    <script>
-        // تشغيل التأثير تلقائياً عند فتح الصفحة
-        window.onload = function() {
-            celebrate();
-        };
-
-        function celebrate() {
-            // إطلاق ألوان مبهجة تناسب شركة دهانات
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#f1c40f', '#9b59b6']
-            });
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
