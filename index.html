@@ -3,117 +3,230 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كاستيللو للدهانات - تهنئة عيد الأضحى</title>
-    <link rel="stylesheet" href="style.css">
+    <title>كاستيللو للدهانات - تهنئة بعيد الاضحى</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            color: #ffd700;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .company-name {
+            color: #e94560;
+            font-weight: bold;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-container h2 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 18px 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            outline: none;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        input[type="text"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        input[type="text"]:focus {
+            border-color: #e94560;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+        }
+
+        button {
+            background: linear-gradient(135deg, #e94560, #c73e54);
+            color: #fff;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.5);
+        }
+
+        .greeting-box {
+            display: none;
+            background: linear-gradient(135deg, #ffd700, #ffed4a);
+            padding: 40px 30px;
+            border-radius: 20px;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .greeting-box h2 {
+            color: #1a1a2e;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .greeting-box p {
+            color: #333;
+            font-size: 20px;
+            line-height: 1.8;
+        }
+
+        .greeting-box .company {
+            color: #e94560;
+            font-weight: bold;
+            font-size: 24px;
+        }
+
+        .greeting-box .user-name {
+            color: #1a1a2e;
+            font-weight: bold;
+            font-size: 28px;
+        }
+
+        .lantern {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 30px;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-top: 20px;
+            box-shadow: none;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+    </style>
 </head>
 <body>
-    <!-- النجوم المتلألأة -->
-    <div class="sparkles">
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-        <div class="sparkle">✦</div>
-        <div class="sparkle">✧</div>
-    </div>
-
-    <!-- ألوان الدهانات المتساقطة -->
-    <div class="paint-drops">
-        <div class="paint-drop" style="left: 10%; background: #FF6B6B; animation-delay: 0s;"></div>
-        <div class="paint-drop" style="left: 20%; background: #4ECDC4; animation-delay: 1s;"></div>
-        <div class="paint-drop" style="left: 30%; background: #FFE66D; animation-delay: 2s;"></div>
-        <div class="paint-drop" style="left: 40%; background: #95E1D3; animation-delay: 0.5s;"></div>
-        <div class="paint-drop" style="left: 50%; background: #F38181; animation-delay: 1.5s;"></div>
-        <div class="paint-drop" style="left: 60%; background: #AA96DA; animation-delay: 2.5s;"></div>
-        <div class="paint-drop" style="left: 70%; background: #FCBAD3; animation-delay: 0.8s;"></div>
-        <div class="paint-drop" style="left: 80%; background: #A8D8EA; animation-delay: 1.8s;"></div>
-        <div class="paint-drop" style="left: 90%; background: #FF9F43; animation-delay: 3s;"></div>
-    </div>
-
     <div class="container">
-        <!-- شعار الشركة -->
-        <header class="company-header">
-            <div class="logo-icon">🎨</div>
-            <h1 class="company-name">كاستيللو للدهانات</h1>
-            <p class="tagline">أجود أنواع الدهانات للمباني السعيدة</p>
-        </header>
+        <div class="lantern">🏮</div>
+        <h1>كاستيللو للدهانات</h1>
+        <p class="subtitle">لأفضل تشكيلة ألوان دهانات 🎨</p>
 
-        <!-- رسالة العيد -->
-        <div class="eid-banner">
-            <div class="banner-content">
-                <span class="sheep">🐑</span>
-                <h2>عيد الأضحى المبارك</h2>
-                <span class="sheep">🐑</span>
-            </div>
-            <p class="eid-wish">كل عام وأنتم بخير وحبوب 🐪</p>
+        <div class="form-container" id="formContainer">
+            <h2>🎉 ادخل اسمك للحصول على تهنئتك 🎉</h2>
+            <input type="text" id="userName" placeholder="اكتب اسمك الكريم...">
+            <button onclick="showGreeting()">ارسال ✉️</button>
         </div>
 
-        <!-- قسم إدخال الاسم -->
-        <div class="card input-card" id="inputCard">
-            <div class="card-header">
-                <span class="gift">🎁</span>
-                <h3>أدخل اسمك для التهنئة</h3>
-                <span class="gift">🎁</span>
-            </div>
-            
-            <form id="greetingForm">
-                <div class="input-wrapper">
-                    <input type="text" id="clientName" placeholder="👤 اسمك الكريم" required autocomplete="off">
-                </div>
-                <button type="submit" class="submit-btn">
-                    <span>🎉</span> هنئني <span>🎊</span>
-                </button>
-            </form>
+        <div class="greeting-box" id="greetingBox">
+            <div class="lantern">🏮</div>
+            <h2>🌙 كل عام وأنتم بخير 🌙</h2>
+            <p>
+                عزيزنا <span class="user-name" id="displayName"></span> 🙏<br><br>
+                تتقدم لكم شركة <span class="company">كاستيللو للدهانات</span><br>
+                بأطيب التمنيات بعيد الاضحى المبارك 🐪<br><br>
+                <strong>كل عام وأنتم بخير وافر الصحة والعافية! 💪</strong>
+            </p>
+            <button class="back-btn" onclick="goBack()">تهنئة أخرى 🔄</button>
         </div>
 
-        <!-- قسم التهنئة الشخصية -->
-        <div class="card result-card hidden" id="resultCard">
-            <div class="celebration-icons">
-                <span>🎊</span>
-                <span>🎉</span>
-                <span>🎈</span>
-                <span>🎁</span>
-                <span>🎊</span>
-            </div>
-            
-            <div class="eid-mubarak-box">
-                <h2>🐏عيد الأضحى المبارك🐏</h2>
-            </div>
-            
-            <div class="personal-message">
-                <h3>كل عام وأنت بخير يا <span id="userName" class="name-highlight"></span> 🎊✨</h3>
-            </div>
-            
-            <div class="company-message">
-                <p>من <strong>عائلة كاستيللو للدهانات</strong></p>
-                <p>نتمنى لك أعياداً مليئة بالفرح والسرور 🇸🇦🇸🇦</p>
-            </div>
-            
-            <div class=" blessings">
-                <span>💖</span>
-                <span>🤲</span>
-                <span>🧧</span>
-                <span>✨</span>
-                <span>🌹</span>
-            </div>
-            
-            <button onclick="restart()" class="restart-btn">
-                <span>🔄</span> تهاني جديدة <span>🎁</span>
-            </button>
+        <div class="footer">
+            🏠 العنوان: [عنوان الشركة]<br>
+            📞 الهاتف: [رقم الهاتف]
         </div>
-
-        <!-- الفوتر -->
-        <footer class="footer">
-            <p>كاستيللو للدهانات 🎨 | Painting Excellence</p>
-        </footer>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        function showGreeting() {
+            const name = document.getElementById('userName').value.trim();
+            
+            if (name === "") {
+                alert("من فضلك ادخل اسمك!");
+                return;
+            }
+
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('greetingBox').style.display = 'block';
+        }
+
+        function goBack() {
+            document.getElementById('userName').value = "";
+            document.getElementById('greetingBox').style.display = 'none';
+            document.getElementById('formContainer').style.display = 'block';
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('userName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                showGreeting();
+            }
+        });
+    </script>
 </body>
 </html>
