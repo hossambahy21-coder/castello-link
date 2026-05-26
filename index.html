@@ -3,52 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيد أضحى مبارك من دهنات كاستيللو</title>
+    <title>عيد أضحى مبارك | كاستيللو</title>
     
     <!-- Google Fonts: Cairo -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome for Icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     
-    <div class="hero-wrapper">
-        <!-- Star decorations -->
-        <div class="star star-1"></div>
-        <div class="star star-2"></div>
-        <div class="star star-3"></div>
-        
-        <main class="container">
-            <div class="logo-container">
-                <!-- Using the image provided from prompt context -->
-                <img src="https://i.imgur.com/5wF8X9l.png" alt="Castello Logo" class="main-logo">
+    <!-- Star Background -->
+    <div class="stars-container"></div>
+    <div class="main-wrapper">
+        <header class="header">
+            <div class="logo">
+                <img src="https://i.imgur.com/5wF8X9l.png" alt="Castello Logo" class="logo-img">
+                <span class="logo-text">دهانات كاستيللو</span>
             </div>
-            
-            <div class="content-card">
-                <h1>عشان العيد، نهنئك!</h1>
-                <p class="subtitle">أدخل اسمك عشان تشوف رسالة التهنية الخاصة بيك.</p>
+        </header>
+
+        <main class="container">
+            <div class="card-wrapper">
                 
-                <form id="nameForm" class="form-container">
-                    <div class="input-group">
-                        <input type="text" id="customerName" placeholder="اكتب اسمك الجدي..." required autocomplete="off">
-                        <i class="fa-solid fa-user input-icon"></i>
+                <!-- Step 1: Welcome & Name Input -->
+                <section id="welcomeSection" class="view-section active">
+                    <div class="icon-circle">
+                        <i class="fa-solid fa-gift"></i>
                     </div>
-                    <button type="submit" class="btn-primary">
-                        ابدأ التهنية
-                        <i class="fa-solid fa-circle-right"></i>
-                    </button>
-                </form>
+                    <h1>هنيك بالعيد يا باشا!</h1>
+                    <p class="sub-text">كتب اسمك عشان نحولك رسالة تهنئة مخصصة من دهنات كاستيللو.</p>
+                    
+                    <form id="nameForm" class="input-group">
+                        <div class="input-field">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="customerName" placeholder="اكتب اسمك هنا..." autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn-main">
+                            <span>أنيحلك التهنية</span>
+                            <i class="fa-solid fa-circle-chevron-right"></i>
+                        </button>
+                    </form>
+                </section>
+
+                <!-- Step 2: Greeting Card (Hidden initially) -->
+                <section id="greetingSection" class="view-section fade-out">
+                    <div class="greeting-card animate-pop">
+                        <!-- Decorative Arches -->
+                        <div class="arch-decoration top">
+                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+                                <path d="M0,80 Q50,20 100,80 Z" fill="none" stroke="#c5a26d" stroke-width="1"/>
+                            </svg>
+                        </div>
+
+                        <div class="card-content">
+                            <div class="moon-container">
+                                <i class="fa-regular fa-moon moon-icon"></i>
+                            </div>
+
+                            <h2 class="greeting-title">عيد أضحى مبارك</h2>
+                            <div class="divider"></div>
+                            
+                            <div class="greeting-body">
+                                <p class="custom-text">
+                                    أهلاً بك يا <span class="highlight-name">...</span>
+                                </p>
+                                <p class="company-msg">
+                                    من دهنات كاستيللو، نهنئك ونهنىء أسرتك الكريمة بمناسبة عيد الأضحى المبارك.
+                                    <br>
+                                    كل عام وكم بخير، وعيد سعيد مليء بالهناء والبهجة.
+                                </p>
+                            </div>
+
+                            <div class="card-footer">
+                                <p class="tagline">شركاء النجاح في دهنات كاستيللو</p>
+                            </div>
+                        </div>
+
+                        <div class="action-area">
+                            <p class="action-text">إيه اللي عايز تروح؟</p>
+                            <div class="actions-buttons">
+                                <a href="#" id="shareWhatsapp" target="_blank" class="btn-action whatsapp">
+                                    <i class="fa-brands fa-whatsapp"></i> واتساب
+                                </a>
+                                <button id="captureBtn" class="btn-action screenshot">
+                                    <i class="fa-solid fa-camera"></i> الصورة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
-        
+
         <footer>
-            <p>© 2024 دهنات كاستيللو - شركاء النجاح</p>
+            <p>© 2024 كاستيللو - جميع الحقوق محفوظة</p>
         </footer>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
