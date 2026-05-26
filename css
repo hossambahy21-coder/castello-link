@@ -1,0 +1,360 @@
+:root {
+    --castello-black: #111111;
+    --castello-gold: #c5a26d;
+    --castello-gold-dark: #a68656;
+    --star-gold: #d4af37;
+    --text-light: #f5f5f5;
+    --text-muted: #a0a0a0;
+    --font-family: 'Cairo', sans-serif;
+}
+ {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #0f0a0f;
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+/ --- Background & Decorations --- /
+.hero-wrapper {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #2c2530 0%, #111 70%, #000 100%);
+    padding: 20px;
+    overflow: hidden;
+}
+
+/ Background Patterns /
+.hero-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c5a26d' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    z-index: 0;
+}
+
+.stars-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px);
+    background-size: 550px 550px;
+    z-index: 0;
+}
+
+.star {
+    position: absolute;
+    color: var(--star-gold);
+    z-index: 1;
+    animation: twinkle 3s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+.star-1 { top: 15%; left: 15%; font-size: 3rem; }
+.star-2 { top: 20%; right: 20%; font-size: 2.5rem; animation-delay: 1s; }
+.star-3 { bottom: 20%; left: 20%; font-size: 4rem; animation-delay: 2s; }
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); transform: rotate(180deg); }
+}
+
+/ --- Container Layout --- /
+.container {
+    position: relative;
+    z-index: 2;
+    max-width: 480px; / Max width for mobile view /
+    width: 100%;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/ --- Logo Area --- /
+.logo-container {
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-logo {
+    max-width: 200px;
+    width: 100%;
+    height: auto;
+}
+
+/ --- Forms & Cards --- /
+.content-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    width: 100%;
+}
+
+.content-card.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+h1 {
+    color: var(--text-light);
+    font-size: 2.5rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+/ --- Input Styles --- /
+.form-container {
+    width: 100%;
+    max-width: 400px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 1rem 1rem 1rem 1rem;
+    font-size: 1.1rem;
+    font-family: var(--font-family);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    color: var(--text-light);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--castello-gold);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 0 4px rgba(229, 185, 45, 0.1);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+.input-icon {
+    position: absolute;
+    top: 50%;
+    left: 15px; / RTL: Left is logical end /
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    font-size: 1.2rem;
+}
+
+/ --- Buttons --- /
+.btn-primary {
+    width: 100%;
+    padding: 1rem;
+    background: var(--castello-gold);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-family: var(--font-family);
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: var(--castello-gold-dark);
+    transform: translateY(-2px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/ --- Greeting Card Styling --- /
+.greeting-card {
+    background: linear-gradient(135deg, #0f0a0f 0%, #1a1a1a 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--castello-gold);
+    position: relative;
+    overflow: hidden;
+    animation: cardPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+}
+
+/ Decorative corners /
+.greeting-card::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-top: 2px solid var(--castello-gold);
+    border-right: 2px solid var(--castello-gold);
+}
+.greeting-card::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    border-bottom: 2px solid var(--castello-gold);
+    border-left: 2px solid var(--castello-gold);
+}
+
+@keyframes cardPop {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.greeting-card .card-logo {
+    max-width: 150px;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.moon-circle {
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, var(--castello-gold), #5a4a35);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.3;
+}
+
+.card-header h2 {
+    color: var(--castello-gold);
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 0 0 10px rgba(197, 162, 109, 0.3);
+}
+
+.greeting-text {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-light);
+    margin: 1.5rem 0;
+    font-weight: 300;
+}
+
+.greeting-text span {
+    font-weight: 700;
+    color: #fff;
+}
+
+/ Action Buttons /
+.action-buttons {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.btn-social {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 12px;
+    border: none;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: transform 0.2s, opacity 0.2s;
+    text-decoration: none;
+    color: white;
+}
+
+.btn-social.whatsapp {
+    background: #25D366;
+}
+
+.btn-social.capture {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-social:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.tagline {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+}
+
+footer {
+    margin-top: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+/ Mobile Adjustments */
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    .greeting-card { padding: 1.5rem; }
+}
