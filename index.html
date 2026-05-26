@@ -1,12 +1,16 @@
+# Castello Eid Web Design (Full HTML)
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>كاستيللو للدهانات | عيد الأضحى</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
 
@@ -14,7 +18,7 @@
       margin:0;
       padding:0;
       box-sizing:border-box;
-      font-family:'Cairo', sans-serif;
+      font-family:'Cairo',sans-serif;
     }
 
     body{
@@ -22,159 +26,247 @@
       display:flex;
       justify-content:center;
       align-items:center;
-      overflow:hidden;
+      overflow-x:hidden;
       position:relative;
-      background:#000;
+      background:#160312;
+      padding:40px 20px;
     }
 
-    /* الخلفية بالصورة */
+    /* الخلفية */
 
     body::before{
       content:"";
-      position:absolute;
-      width:100%;
-      height:100%;
-      background-image:url('/mnt/data/Bash.jpeg');
-      background-size:cover;
-      background-position:center;
-      filter:brightness(.35);
+      position:fixed;
+      inset:0;
+      background:url('/mnt/data/Bash.jpeg') center center/cover no-repeat;
+      filter:brightness(.32);
       z-index:1;
     }
 
-    /* طبقة شفافة */
-
     body::after{
       content:"";
-      position:absolute;
-      width:100%;
-      height:100%;
-      background:rgba(0,0,0,.45);
+      position:fixed;
+      inset:0;
+      background:linear-gradient(to bottom,rgba(0,0,0,.2),rgba(0,0,0,.7));
       z-index:2;
     }
 
-    .container{
+    .wrapper{
       position:relative;
-      z-index:3;
-      width:90%;
-      max-width:750px;
-      padding:45px;
-      border-radius:30px;
-      text-align:center;
+      z-index:5;
+      width:100%;
+      max-width:850px;
+    }
 
-      background:rgba(0,0,0,.35);
-      backdrop-filter:blur(12px);
+    .main-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:40px;
+      padding:45px 35px;
 
-      border:1px solid rgba(255,255,255,.1);
+      background:rgba(7,8,20,.86);
 
-      box-shadow:0 15px 40px rgba(0,0,0,.5);
+      border:2px solid rgba(255,120,170,.5);
+
+      box-shadow:
+      0 0 40px rgba(255,0,120,.18),
+      0 15px 80px rgba(0,0,0,.55);
+
+      backdrop-filter:blur(10px);
+    }
+
+    .main-card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(255,0,119,.15), transparent 30%),
+      radial-gradient(circle at bottom right, rgba(255,187,0,.12), transparent 30%);
+
+      pointer-events:none;
     }
 
     .logo{
+      text-align:center;
+      margin-bottom:30px;
+    }
+
+    .logo h2{
       color:#fff;
       font-size:42px;
       font-weight:900;
-      margin-bottom:10px;
+      margin-bottom:5px;
+    }
+
+    .logo p{
+      color:#ffd3e0;
+      font-size:20px;
+    }
+
+    .title{
+      text-align:center;
+      margin-bottom:35px;
+    }
+
+    .title h1{
+      color:#ff4b8c;
+      font-size:64px;
+      font-weight:900;
+      line-height:1.2;
+      text-shadow:0 6px 20px rgba(255,0,111,.5);
+    }
+
+    .title h3{
+      color:#dba05d;
+      font-size:46px;
+      margin-top:5px;
+      font-weight:800;
     }
 
     .subtitle{
-      color:#ffd5e3;
-      margin-bottom:35px;
-      font-size:18px;
+      text-align:center;
+      color:#ffffff;
+      margin-bottom:30px;
+      font-size:27px;
+      line-height:1.8;
     }
 
-    h1{
-      color:#fff;
-      font-size:42px;
-      line-height:1.6;
-      margin-bottom:30px;
+    .input-box{
+      width:100%;
+      margin-bottom:25px;
     }
 
     input{
       width:100%;
-      padding:18px;
-      border:none;
-      outline:none;
-      border-radius:15px;
-      margin-bottom:20px;
-
-      background:rgba(255,255,255,.1);
-
+      height:75px;
+      border-radius:18px;
+      border:1px solid rgba(255,170,210,.35);
+      background:rgba(255,255,255,.05);
       color:#fff;
-      font-size:18px;
+      font-size:24px;
+      padding:0 25px;
+      outline:none;
       text-align:center;
-
-      border:1px solid rgba(255,255,255,.15);
     }
 
     input::placeholder{
-      color:#ddd;
+      color:#d7c6ce;
     }
 
-    button{
+    .btn{
+      width:100%;
+      height:78px;
       border:none;
-      padding:16px 45px;
-      border-radius:15px;
+      border-radius:22px;
 
-      background:#d52c69;
+      background:linear-gradient(180deg,#ff3e88,#b50053);
+
       color:#fff;
-
-      font-size:19px;
-      font-weight:700;
+      font-size:34px;
+      font-weight:800;
 
       cursor:pointer;
-      transition:.3s;
+      transition:.35s;
+
+      box-shadow:0 12px 35px rgba(255,0,100,.3);
     }
 
-    button:hover{
-      transform:scale(1.05);
-      background:#ef3f7f;
+    .btn:hover{
+      transform:translateY(-4px) scale(1.01);
     }
 
-    .result{
+    .result-card{
+      margin-top:40px;
+      border-radius:35px;
+      padding:45px 30px;
+
+      background:linear-gradient(180deg,rgba(13,18,40,.95),rgba(4,6,18,.95));
+
+      border:1px solid rgba(255,173,209,.28);
+
+      text-align:center;
+
       display:none;
-      margin-top:35px;
-
-      color:#fff;
-      font-size:30px;
-      line-height:2;
 
       animation:fade 1s ease;
     }
 
+    .result-card h4{
+      color:#ffcc87;
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .result-card .company{
+      color:#ffffff;
+      font-size:30px;
+      line-height:1.8;
+    }
+
+    .result-name{
+      color:#ff3f82;
+      font-size:64px;
+      font-weight:900;
+      margin:20px 0;
+      text-shadow:0 8px 25px rgba(255,0,111,.45);
+    }
+
+    .message{
+      color:#ffffff;
+      font-size:30px;
+      line-height:2;
+    }
+
+    .footer{
+      margin-top:35px;
+      text-align:center;
+      color:#e6bd88;
+      font-size:24px;
+      font-weight:700;
+    }
+
     @keyframes fade{
+
       from{
         opacity:0;
-        transform:translateY(20px);
+        transform:translateY(30px);
       }
 
       to{
         opacity:1;
         transform:translateY(0);
       }
-    }
 
-    .footer{
-      margin-top:30px;
-      color:#f1d9df;
-      font-size:15px;
     }
 
     @media(max-width:768px){
 
-      .container{
-        padding:25px;
+      .main-card{
+        padding:35px 20px;
       }
 
-      h1{
-        font-size:28px;
+      .title h1{
+        font-size:45px;
       }
 
-      .result{
+      .title h3{
+        font-size:34px;
+      }
+
+      .subtitle{
         font-size:22px;
       }
 
-      .logo{
-        font-size:32px;
+      .btn{
+        font-size:26px;
+      }
+
+      .result-name{
+        font-size:48px;
+      }
+
+      .message{
+        font-size:23px;
       }
 
     }
@@ -184,30 +276,55 @@
 
 <body>
 
-  <div class="container">
+  <div class="wrapper">
 
-    <div class="logo">
-      كاستيللو للدهانات
-    </div>
+    <div class="main-card">
 
-    <div class="subtitle">
-      تهنئة خاصة بمناسبة عيد الأضحى المبارك
-    </div>
+      <div class="logo">
+        <h2>Castello</h2>
+        <p>دهانات كاستيللو</p>
+      </div>
 
-    <h1>
-      اكتب اسمك واستلم تهنئتك الخاصة ✨
-    </h1>
+      <div class="title">
+        <h1>عيد أضحى مبارك</h1>
+        <h3>من دهانات كاستيللو</h3>
+      </div>
 
-    <input type="text" id="name" placeholder="اكتب اسمك هنا">
+      <div class="subtitle">
+        أدخل اسمك لتحصل على تهنئة خاصة<br>
+        بمناسبة عيد الأضحى المبارك ✨
+      </div>
 
-    <button onclick="showGreeting()">
-      عرض التهنئة
-    </button>
+      <div class="input-box">
+        <input type="text" id="name" placeholder="اكتب اسمك هنا">
+      </div>
 
-    <div class="result" id="result"></div>
+      <button class="btn" onclick="showGreeting()">
+        عرض التهنئة
+      </button>
 
-    <div class="footer">
-      © Castello Paints
+      <div class="result-card" id="resultCard">
+
+        <h4>كل عام وأنتم بخير</h4>
+
+        <div class="company">
+          تتقدم دهانات كاستيللو بأطيب التهاني إلى
+        </div>
+
+        <div class="result-name" id="clientName"></div>
+
+        <div class="message">
+          بمناسبة عيد الأضحى المبارك<br>
+          أعاده الله عليكم بالخير واليمن والبركات<br>
+          وتقبل الله منا ومنكم صالح الأعمال ❤️
+        </div>
+
+      </div>
+
+      <div class="footer">
+        شركاء النجاح في دهانات كاستيللو
+      </div>
+
     </div>
 
   </div>
@@ -216,39 +333,22 @@
 
     function showGreeting(){
 
-      let name = document.getElementById("name").value;
+      let name = document.getElementById('name').value;
 
-      if(name.trim() == ""){
+      if(name.trim() === ''){
 
-        alert("من فضلك اكتب اسمك");
-
+        alert('من فضلك اكتب الاسم');
         return;
       }
 
-      document.getElementById("result").style.display = "block";
+      document.getElementById('resultCard').style.display = 'block';
 
-      document.getElementById("result").innerHTML = `
-      
-      🌙✨<br>
+      document.getElementById('clientName').innerHTML = name;
 
-      تتقدم شركة <b>كاستيللو للدهانات</b><br>
-
-      بأطيب التهاني إلى<br>
-
-      <span style="color:#ff4d88;font-size:40px;font-weight:900">
-      ${name}
-      </span>
-
-      <br>
-
-      بمناسبة عيد الأضحى المبارك 🐑❤️<br>
-
-      أعاده الله عليكم بالخير واليُمن والبركات
-
-      `;
     }
 
   </script>
 
 </body>
 </html>
+```
