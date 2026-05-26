@@ -1,291 +1,230 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كاستيللو للدهانات - تهنئة بعيد الاضحى</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تهنئة عيد الأضحى | كاستيللو للدهانات</title>
 
-        body {
-            font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            min-height: 100vh;
-            /* 👈 حط رابط الصورة هنا */
-            background-image: url('https://images.unsplash.com/photo-1539540869520-14b2105b375b?w=1920');
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-        /* طبقة شفافة فوق الصورة */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.75) 50%, rgba(15, 52, 96, 0.85) 100%);
-            z-index: -1;
-        }
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Cairo', sans-serif;
+    }
 
-        .container {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-radius: 30px;
-            padding: 50px 40px;
-            max-width: 650px;
-            width: 100%;
-            text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-        }
+    body{
+      height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      background:#111;
+    }
 
-        .logo {
-            font-size: 80px;
-            margin-bottom: 10px;
-        }
+    /* الخلفية */
+    .bg{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:url('background.jpg') center center/cover no-repeat;
+      filter:brightness(0.45);
+      z-index:1;
+    }
 
-        h1 {
-            color: #fff;
-            font-size: 32px;
-            margin-bottom: 10px;
-            font-weight: 900;
-            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
-        }
+    /* طبقة شفافة */
+    .overlay{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:linear-gradient(
+        to bottom,
+        rgba(0,0,0,.4),
+        rgba(0,0,0,.6)
+      );
+      z-index:2;
+    }
 
-        .subtitle {
-            color: #ffd700;
-            font-size: 20px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-        }
+    /* المحتوى */
+    .container{
+      position:relative;
+      z-index:3;
+      width:90%;
+      max-width:700px;
+      text-align:center;
+      padding:40px;
+      border-radius:30px;
+      backdrop-filter:blur(12px);
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.1);
+      box-shadow:0 10px 40px rgba(0,0,0,.4);
+    }
 
-        .company-name {
-            color: #e94560;
-            font-weight: bold;
-        }
+    .logo{
+      font-size:42px;
+      font-weight:900;
+      color:#fff;
+      margin-bottom:10px;
+    }
 
-        .form-container {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 35px 30px;
-            border-radius: 25px;
-            margin-bottom: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
+    .sub{
+      color:#f5d7e0;
+      margin-bottom:35px;
+      font-size:18px;
+    }
 
-        .form-container h2 {
-            color: #fff;
-            font-size: 22px;
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
+    h1{
+      color:#fff;
+      font-size:42px;
+      margin-bottom:25px;
+      line-height:1.5;
+    }
 
-        input[type="text"] {
-            width: 100%;
-            padding: 18px 25px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50px;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.15);
-            color: #fff;
-            outline: none;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-family: 'Cairo', sans-serif;
-        }
+    input{
+      width:100%;
+      padding:18px;
+      border:none;
+      outline:none;
+      border-radius:15px;
+      font-size:18px;
+      text-align:center;
+      margin-bottom:20px;
+      background:rgba(255,255,255,0.12);
+      color:#fff;
+      border:1px solid rgba(255,255,255,0.15);
+    }
 
-        input[type="text"]::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
+    input::placeholder{
+      color:#ddd;
+    }
 
-        input[type="text"]:focus {
-            border-color: #e94560;
-            background: rgba(255, 255, 255, 0.25);
-            box-shadow: 0 0 25px rgba(233, 69, 96, 0.4);
-        }
+    button{
+      padding:16px 45px;
+      border:none;
+      border-radius:15px;
+      background:#d63b72;
+      color:#fff;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      transition:0.3s;
+    }
 
-        button {
-            background: linear-gradient(135deg, #e94560, #c73e54);
-            color: #fff;
-            border: none;
-            padding: 18px 55px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
-            font-family: 'Cairo', sans-serif;
-        }
+    button:hover{
+      transform:scale(1.05);
+      background:#ef4b87;
+    }
 
-        button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
-        }
+    .result{
+      margin-top:35px;
+      color:#fff;
+      font-size:28px;
+      line-height:2;
+      display:none;
+      animation:fade 1s ease;
+    }
 
-        .greeting-box {
-            display: none;
-            background: linear-gradient(135deg, #ffd700, #ffed4a);
-            padding: 45px 35px;
-            border-radius: 25px;
-            margin-top: 30px;
-            animation: fadeIn 0.6s ease;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-        }
+    @keyframes fade{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8) translateY(20px); }
-            to { opacity: 1; transform: scale(1) translateY(0); }
-        }
+    .footer{
+      margin-top:30px;
+      color:#f0d5dd;
+      font-size:15px;
+    }
 
-        .greeting-box h2 {
-            color: #1a1a2e;
-            font-size: 32px;
-            margin-bottom: 20px;
-            font-weight: 900;
-        }
+    @media(max-width:768px){
 
-        .greeting-box p {
-            color: #333;
-            font-size: 20px;
-            line-height: 2;
-        }
+      .container{
+        padding:25px;
+      }
 
-        .greeting-box .company {
-            color: #e94560;
-            font-weight: bold;
-            font-size: 26px;
-        }
+      h1{
+        font-size:28px;
+      }
 
-        .greeting-box .user-name {
-            color: #1a1a2e;
-            font-weight: bold;
-            font-size: 30px;
-        }
+      .result{
+        font-size:22px;
+      }
 
-        .lantern {
-            font-size: 70px;
-            margin-bottom: 15px;
-        }
+      .logo{
+        font-size:32px;
+      }
 
-        .footer {
-            color: rgba(255, 255, 255, 0.7);
-            margin-top: 30px;
-            font-size: 14px;
-            line-height: 1.8;
-        }
+    }
 
-        .back-btn {
-            background: transparent;
-            border: 2px solid rgba(0, 0, 0, 0.2);
-            color: #333;
-            margin-top: 25px;
-            box-shadow: none;
-        }
-
-        .back-btn:hover {
-            background: rgba(0, 0, 0, 0.1);
-        }
-
-        /* للشاشات الصغيرة */
-        @media (max-width: 600px) {
-            .container {
-                padding: 35px 25px;
-            }
-            
-            h1 {
-                font-size: 26px;
-            }
-            
-            .logo {
-                font-size: 60px;
-            }
-            
-            .form-container {
-                padding: 25px 20px;
-            }
-            
-            input[type="text"] {
-                font-size: 16px;
-                padding: 15px 20px;
-            }
-            
-            button {
-                font-size: 18px;
-                padding: 15px 40px;
-            }
-        }
-    </style>
+  </style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="lantern">🏮</div>
-        <h1>كاستيللو للدهانات</h1>
-        <p class="subtitle">لأفضل تشكيلة ألوان دهانات 🎨</p>
 
-        <div class="form-container" id="formContainer">
-            <h2>🎉 ادخل اسمك للحصول على تهنئتك 🎉</h2>
-            <input type="text" id="userName" placeholder="اكتب اسمك الكريم...">
-            <button onclick="showGreeting()">ارسال ✉️</button>
-        </div>
+  <div class="bg"></div>
+  <div class="overlay"></div>
 
-        <div class="greeting-box" id="greetingBox">
-            <div class="lantern">🏮</div>
-            <h2>🌙 كل عام وأنتم بخير 🌙</h2>
-            <p>
-                عزيزنا <span class="user-name" id="displayName"></span> 🙏<br><br>
-                تتقدم لكم شركة <span class="company">كاستيللو للدهانات</span><br>
-                بأطيب التمنيات بعيد الاضحى المبارك 🐪<br><br>
-                <strong>كل عام وأنتم بخير وافر الصحة والعافية! 💪</strong>
-            </p>
-            <button class="back-btn" onclick="goBack()">تهنئة أخرى 🔄</button>
-        </div>
+  <div class="container">
 
-        <div class="footer">
-            🏠 العنوان: [عنوان الشركة]<br>
-            📞 الهاتف: [رقم الهاتف] | 📧 الايميل: [email@company.com]
-        </div>
+    <div class="logo">
+      كاستيللو للدهانات
     </div>
 
-    <script>
-        function showGreeting() {
-            const name = document.getElementById('userName').value.trim();
-            
-            if (name === "") {
-                alert("من فضلك ادخل اسمك!");
-                return;
-            }
+    <div class="sub">
+      تهنئة خاصة بمناسبة عيد الأضحى المبارك
+    </div>
 
-            document.getElementById('formContainer').style.display = 'none';
-            document.getElementById('displayName').textContent = name;
-            document.getElementById('greetingBox').style.display = 'block';
-        }
+    <h1>
+      اكتب اسمك واستلم تهنئتك الخاصة
+    </h1>
 
-        function goBack() {
-            document.getElementById('userName').value = "";
-            document.getElementById('greetingBox').style.display = 'none';
-            document.getElementById('formContainer').style.display = 'block';
-        }
+    <input type="text" id="name" placeholder="اكتب اسمك هنا">
 
-        // Allow Enter key to submit
-        document.getElementById('userName').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                showGreeting();
-            }
-        });
-    </script>
+    <button onclick="showGreeting()">
+      عرض التهنئة
+    </button>
+
+    <div class="result" id="result"></div>
+
+    <div class="footer">
+      © Castello Paints
+    </div>
+
+  </div>
+
+  <script>
+
+    function showGreeting(){
+
+      let name = document.getElementById("name").value;
+
+      if(name.trim() === ""){
+        alert("من فضلك اكتب اسمك");
+        return;
+      }
+
+      document.getElementById("result").style.display = "block";
+
+      document.getElementById("result").innerHTML =
+      `
+      🌙✨<br>
+      تتقدم شركة <b>كاستيللو للدهانات</b><br>
+      بأرق التهاني إلى<br>
+      <b>${name}</b><br>
+      بمناسبة عيد الأضحى المبارك 🐑❤️<br>
+      أعاده الله عليكم بالخير واليمن والبركات
+      `;
+    }
+
+  </script>
+
 </body>
 </html>
