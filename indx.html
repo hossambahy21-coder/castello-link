@@ -1,167 +1,435 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كاستيللو - عيد أضحى مبارك</title>
-    
-    <!-- Google Fonts: Cairo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom Config -->
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        castillo: {
-                            primary: '#f472b6',   
-                            secondary: '#fbcfe8', 
-                            dark: '#831843',
-                            soft: '#ffffff'
-                        }
-                    },
-                    fontFamily: {
-                        cairo: ['Cairo', 'sans-serif'],
-                    }
-                }
+    <title>Castello - تهنئة عيد الأضحى المبارك</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Traditional Arabic', 'Amiri', serif;
+            background: linear-gradient(135deg, #1a472a 0%, #2d5a3f 50%, #1a472a 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Background Pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,215,0,0.1) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5L35 20L50 20L38 30L43 45L30 35L17 45L22 30L10 20L25 20Z' fill='none' stroke='rgba(255,215,0,0.05)' stroke-width='1'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .greeting-container {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f4e8 100%);
+            border-radius: 30px;
+            padding: 50px 40px;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 
+                0 25px 80px rgba(0,0,0,0.3),
+                0 0 0 3px #c9a227,
+                0 0 0 6px #1a472a;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative corners */
+        .greeting-container::before,
+        .greeting-container::after {
+            content: '☙';
+            position: absolute;
+            font-size: 40px;
+            color: #c9a227;
+        }
+
+        .greeting-container::before {
+            top: 15px;
+            left: 20px;
+        }
+
+        .greeting-container::after {
+            bottom: 15px;
+            right: 20px;
+            transform: rotate(180deg);
+        }
+
+        .company-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .company-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1a472a;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .company-tagline {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .eid-title {
+            text-align: center;
+            font-size: 32px;
+            color: #c9a227;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .eid-icon {
+            text-align: center;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .input-section {
+            background: #f0ebe0;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+
+        .input-label {
+            font-size: 18px;
+            color: #1a472a;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .name-input {
+            width: 100%;
+            max-width: 300px;
+            padding: 15px 25px;
+            font-size: 20px;
+            border: 3px solid #1a472a;
+            border-radius: 50px;
+            text-align: center;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: #c9a227;
+            box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+        }
+
+        .generate-btn {
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0;
+            padding: 18px 40px;
+            font-size: 20px;
+            font-family: inherit;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(145deg, #1a472a, #2d5a3f);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(26, 71, 42, 0.4);
+        }
+
+        .generate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(26, 71, 42, 0.5);
+        }
+
+        .generate-btn:active {
+            transform: translateY(0);
+        }
+
+        .greeting-message {
+            text-align: center;
+            padding: 30px;
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .greeting-message.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
             }
         }
-    </script>
-    
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
+
+        .customer-name-display {
+            font-size: 42px;
+            font-weight: bold;
+            color: #1a472a;
+            margin-bottom: 15px;
+        }
+
+        .personal-message {
+            font-size: 24px;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .signature {
+            margin-top: 25px;
+            font-size: 18px;
+            color: #666;
+        }
+
+        .company-logo {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px dashed #ccc;
+        }
+
+        .logo-placeholder {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, #1a472a, #2d5a3f);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #c9a227;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(26, 71, 42, 0.3);
+        }
+
+        .social-links {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 25px;
+            background: white;
+            border-radius: 50px;
+            text-decoration: none;
+            color: #1a472a;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        .social-link.website {
+            border: 2px solid #1a472a;
+        }
+
+        .social-link.facebook {
+            border: 2px solid #1877f2;
+            color: #1877f2;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Decorative stars */
+        .stars {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            color: #c9a227;
+        }
+
+        /* Animation for button */
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 8px 25px rgba(26, 71, 42, 0.4);
+            }
+            50% {
+                box-shadow: 0 8px 35px rgba(26, 71, 42, 0.6);
+            }
+        }
+
+        .generate-btn {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .greeting-container {
+                padding: 30px 20px;
+            }
+
+            .company-name {
+                font-size: 28px;
+            }
+
+            .eid-title {
+                font-size: 26px;
+            }
+
+            .eid-icon {
+                font-size: 45px;
+            }
+
+            .customer-name-display {
+                font-size: 32px;
+            }
+
+            .personal-message {
+                font-size: 20px;
+            }
+
+            .social-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
-<body class="font-cairo bg-castillo-soft text-gray-800 overflow-x-hidden relative">
-
-    <!-- Intro Logo Loader -->
-    <div id="logoLoader" class="fixed inset-0 z-[100] bg-castillo-soft flex flex-col items-center justify-center transition-opacity duration-1000">
-        <div class="relative">
-            <!-- Abstract Logo Shape (Representing Castillo) -->
-            <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr from-castillo-primary to-purple-600 rounded-full flex items-center justify-center animate-spin-slow shadow-2xl shadow-castillo-primary/50">
-                <i class="fas fa-cube text-white text-4xl md:text-5xl"></i>
-            </div>
-            <!-- Text Below -->
-            <div class="mt-4 text-center animate-fade-in-up">
-                <h2 class="text-3xl md:text-4xl font-bold text-castillo-dark">Castello</h2>
-                <p class="text-sm md:text-base text-gray-500 mt-1">دهانات كاستيللو</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Background Floating Elements Container -->
-    <div id="particles-container" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
-        <!-- Will be populated by JS -->
-    </div>
-
-    <!-- Navbar -->
-    <nav class="relative z-50 w-full py-6 px-4 md:px-12 flex justify-between items-center">
-        <div class="text-2xl md:text-3xl font-extrabold text-castillo-primary tracking-tighter">
-            <i class="fas fa-shapes ml-2"></i> كاستيللو
-        </div>
-        <div class="hidden md:flex gap-6 text-castillo-dark font-semibold">
-            <a href="#" class="hover:text-castillo-primary transition">الرئيسية</a>
-            <a href="#" class="hover:text-castillo-primary transition">قصتنا</a>
-            <a href="#" class="hover:text-castillo-primary transition">تواصل معنا</a>
-        </div>
-        <button class="bg-castillo-primary text-white px-6 py-2 rounded-full shadow-lg shadow-pink-300 hover:shadow-pink-500 transition transform hover:-translate-y-1">
-            تهاني خاصة
-        </button>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-4 text-center">
+<body>
+    <div class="greeting-container">
+        <div class="stars">✦ ★ ✦</div>
         
-        <!-- Elevation Glow Background -->
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-castillo-secondary rounded-full opacity-40 blur-3xl filter -z-10 animate-pulse-slow"></div>
-
-        <!-- Main Heading -->
-        <div class="mb-6 transform hover:scale-105 transition duration-500">
-            <span class="bg-white px-4 py-1 rounded-full shadow-sm text-castillo-primary text-sm font-bold border border-castillo-secondary">
-                🌙 هنيئة من أسرة كاستيللو
-            </span>
+        <div class="company-header">
+            <div class="company-name">كاستيللو Castello</div>
         </div>
 
-        <h1 class="text-5xl md:text-7xl font-extrabold text-castillo-dark leading-tight mb-6 drop-shadow-sm">
-            كل عام وأنتِ <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-castillo-primary to-purple-500" id="namePlaceholder">بالألف خير يا أسمى</span>
-            <br> أعيادكم طيبة
-        </h1>
+        <div class="eid-icon">🐐🌙</div>
+        
+        <h1 class="eid-title">عيد أضحى مبارك</h1>
 
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
-            بمناسبة عيد الأضحى المبارك، نتمنى لكل عملائنا الكرام الصحة والعافية، 
-            وسعادة لا تنتهي، وأن يكون عيدكم مليئاً بالهنا والهناء والبركات.
-        </p>
-
-        <!-- Personalized Greeting Display (Hidden initially) -->
-        <div id="personalizedGreeting" class="hidden mb-10 pt-4 border-t border-castillo-secondary/50">
-            <p class="text-xl font-bold text-castillo-primary">
-                كل عام وأنتم بألف خير، يا <span id="displayUserName" class="text-castillo-dark border-b-2 border-castillo-primary">العميل</span>!
-            </p>
-            <p class="text-gray-500 mt-2">شكراً لاختياركم كاستيللو</p>
+        <div class="input-section">
+            <label class="input-label">أدخل اسمك للحصول على تهنئة خاصة:</label>
+            <input type="text" class="name-input" id="customerName" placeholder="أكتب اسمك هنا..." />
+            <button class="generate-btn" onclick="generateGreeting()">🎉 générer تهنئة</button>
         </div>
 
-        <!-- CTA Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
-            
-            <!-- Card 1 -->
-            <div class="card-3d bg-white/80 backdrop-blur-sm border border-castillo-secondary p-8 rounded-3xl shadow-xl hover:rotate-y-3 transition duration-300 cursor-pointer group">
-                <div class="w-16 h-16 bg-castillo-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-castillo-primary group-hover:text-white text-castillo-primary transition">
-                    <i class="fas fa-quran text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-castillo-dark mb-2">تقبل الله منا ومنكم</h3>
-                <p class="text-gray-600 text-sm">نسألكم الدعاء والقبول في هذا اليوم المبارك.</p>
-                <div class="mt-4 text-castillo-primary opacity-0 group-hover:opacity-100 transition transform translate-x-2 group-hover:translate-x-0">
-                    <i class="fas fa-arrow-left"></i> إرسال التهاني
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="card-3d bg-white/80 backdrop-blur-sm border border-castillo-secondary p-8 rounded-3xl shadow-xl hover:rotate-y-3 transition duration-300 cursor-pointer group">
-                <div class="w-16 h-16 bg-castillo-secondary/50 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-castillo-primary group-hover:text-white transition">
-                    <i class="fas fa-star text-2xl"></i>
-                </div>
-                <h3 class="text-2xl font-bold text-castillo-dark mb-2">عرض خاص بالعيد</h3>
-                <p class="text-gray-600 text-sm">خصم ٢٠٪ لجميع منتجاتنا المميزة خلال أيام العيد.</p>
-                <div class="mt-4 text-castillo-primary opacity-0 group-hover:opacity-100 transition transform translate-x-2 group-hover:translate-x-0">
-                    <i class="fas fa-shopping-bag"></i> اكتشف العروض
-                </div>
-            </div>
-
+        <div class="greeting-message" id="greetingMessage">
+            <div class="customer-name-display" id="displayName"></div>
+            <p class="personal-message" id="personalText"></p>
+            <p class="signature">من عائلة كاستيللو ❤️</p>
         </div>
-    </section>
 
-    <!-- Decoration Text -->
-    <div class="relative z-10 py-20 px-4 text-center">
-        <h2 class="text-4xl font-bold text-castillo-primary mb-2">✨</h2>
-        <p class="text-castillo-dark text-lg font-semibold">شكراً لأنكم جزء من قصة كاستيللو</p>
+        <div class="company-logo">
+            <div class="logo-placeholder">C</div>
+            <p style="margin-top: 10px; color: #1a472a; font-weight: bold;">كاستيللو Castello</p>
+        </div>
+
+        <div class="social-links">
+            <a href="https://castello.com" class="social-link website" target="_blank">
+                🌍 Website
+            </a>
+            <a href="https://facebook.com/castello" class="social-link facebook" target="_blank">
+                📘 Facebook
+            </a>
+        </div>
+
+        <p class="footer-text">عيد أضحى مبارك | Blessed Eid al-Adha</p>
     </div>
 
-    <!-- Footer -->
-    <footer class="relative z-50 bg-white/50 backdrop-blur-md border-t border-castillo-secondary py-8 text-center">
-        <div class="flex justify-center gap-8 mb-4 text-2xl text-castillo-dark">
-            <a href="https://facebook.com" target="blank" class="hover:text-castillo-primary transition transform hover:scale-110">
-                <i class="fab fa-facebook-f"></i>
-                <span class="text-sm mr-2">Castello Facebook</span>
-            </a>
-            <a href="https://castello.com" target="blank" class="hover:text-castillo-primary transition transform hover:scale-110">
-                <i class="fas fa-globe"></i>
-                <span class="text-sm mr-2">Castello Website</span>
-            </a>
-        </div>
-        <p class="text-gray-600 font-semibold text-sm">
-            © 2024 Castello Company. All rights reserved 🇪🇬
-        </p>
-    </footer>
+    <script>
+        function generateGreeting() {
+            const nameInput = document.getElementById('customerName');
+            const name = nameInput.value.trim();
+            
+            if (!name) {
+                alert('من فضلك أدخل اسمك أولاً!');
+                nameInput.focus();
+                return;
+            }
 
-    <!-- Scripts -->
-    <script src="script.js"></script>
+            // Personalized messages
+            const messages = [
+                `ألف孰 صحة وسلامة ${name}! 
+                يتقبل الله منك صالح الأعمال،ouz لك وعائلتك وأحبائك.
+                ${name} المحترم، نتمنى لك ولأسرتك الكريمة festive Eid充满欢乐和吉祥!`,
+
+                `${name} العزيز،!
+                في هذا اليوم المبارك، nous vous wishing a blessed Eid al-Adha.
+                Que cette fête apporte阳性能量和祝福 pour vous et votre famille.
+                تقبل الله منا ومنكم صالح الأعوا!`,
+
+                `Cher ${name},!
+                Eid Mubarak! Que阳性思想萦绕心头，愿真主赐予你丰盛的恩典。
+                我们祝你在这个吉祥的日子充满欢乐和family warmth!`,
+                
+                `${name} المحترم،!
+                يارب bore我们在这个美好的时刻为你祈祷。
+                Blessed Eid充满喜悦和peace，愿真主保佑你always!
+                
+                🎊🎊🎊`
+            ];
+
+            // Select random message
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            const selectedMessage = messages[randomIndex];
+
+            // Display personalization
+            document.getElementById('displayName').textContent = name + ' العزيز،';
+            document.getElementById('personalText').innerHTML = selectedMessage;
+
+            // Show message with animation
+            const greetingMessage = document.getElementById('greetingMessage');
+            greetingMessage.classList.remove('show');
+            
+            // Trigger reflow
+            void greetingMessage.offsetWidth;
+            
+            greetingMessage.classList.add('show');
+
+            // Hide input section after generation
+            document.querySelector('.input-section').style.display = 'none';
+        }
+
+        // Allow Enter key to submit
+        document.getElementById('customerName').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                generateGreeting();
+            }
+        });
+    </script>
 </body>
 </html>
