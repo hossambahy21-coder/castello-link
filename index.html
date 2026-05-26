@@ -108,15 +108,12 @@ font-size:95px;
 font-weight:900;
 line-height:1;
 margin-bottom:20px;
+color:#d9a441;
 }
 
 .title span{
 display:block;
 color:#ff5a1f;
-}
-
-.title{
-color:#d9a441;
 }
 
 /* النص */
@@ -183,6 +180,88 @@ height:2px;
 background:#d9a441;
 }
 
+/* زر رفع الصورة */
+
+.upload-btn{
+
+background:#d9a441;
+color:#fff;
+
+padding:14px 28px;
+
+border-radius:14px;
+
+cursor:pointer;
+
+font-size:22px;
+font-weight:700;
+
+margin:20px 0;
+
+display:inline-block;
+
+transition:.3s;
+}
+
+.upload-btn:hover{
+transform:scale(1.05);
+}
+
+/* حقل الاسم */
+
+.name-input{
+
+width:100%;
+max-width:450px;
+
+padding:18px 20px;
+
+border:none;
+outline:none;
+
+border-radius:16px;
+
+background:rgba(255,255,255,.12);
+
+color:#fff;
+
+font-size:24px;
+text-align:center;
+
+margin-top:15px;
+}
+
+/* زر الإرسال */
+
+.send-btn{
+
+margin-top:20px;
+
+padding:16px 40px;
+
+border:none;
+
+border-radius:16px;
+
+background:#ff5a1f;
+
+color:#fff;
+
+font-size:24px;
+font-weight:800;
+
+cursor:pointer;
+
+transition:.3s;
+}
+
+.send-btn:hover{
+
+transform:translateY(-3px);
+
+background:#ff6d3a;
+}
+
 /* موبايل */
 
 @media(max-width:768px){
@@ -221,6 +300,15 @@ font-size:24px;
 font-size:20px;
 }
 
+.name-input{
+font-size:18px;
+}
+
+.send-btn{
+font-size:20px;
+padding:14px 30px;
+}
+
 }
 
 </style>
@@ -248,10 +336,28 @@ font-size:20px;
 <!-- صورة الشخص -->
 <img src="person.png" class="person">
 
+<!-- زر رفع صورة -->
+<label for="upload" class="upload-btn">
+اختيار صورة
+</label>
+
+<input type="file" id="upload" hidden>
+
 <!-- الاسم -->
 <h2 class="name">
 المهندس عامر
 </h2>
+
+<input
+type="text"
+placeholder="اكتب الاسم هنا"
+class="name-input"
+id="username">
+
+<!-- زر الإرسال -->
+<button class="send-btn" onclick="changeName()">
+إرسال
+</button>
 
 <!-- الوظيفة -->
 <p class="job">
@@ -260,11 +366,3 @@ font-size:20px;
 </p>
 
 <!-- الفوتر -->
-<div class="footer">
-شركاء النجاح في دهانات كاستيلو
-</div>
-
-</div>
-
-</body>
-</html>
