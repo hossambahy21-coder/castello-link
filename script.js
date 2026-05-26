@@ -7,6 +7,9 @@ document.getElementById('nameForm').addEventListener('submit', function(e) {
         document.getElementById('showName').textContent = name;
         document.getElementById('greetingCard').classList.add('hidden');
         document.getElementById('resultCard').classList.remove('hidden');
+        
+        // إضافة صوت احتفالي (اختياري)
+        // new Audio('celebration.mp3').play();
     }
 });
 
