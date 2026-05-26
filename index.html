@@ -3,93 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كاستيللو للدهانات - تهنئة بعيد الأضحى</title>
+    <title>كاستيللو للدهانات - تهنئة عيد الأضحى</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- النجوم المتحركة -->
-    <div class="stars-container">
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">🌟</div>
-        <div class="star">💫</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">🌟</div>
-        <div class="star">💫</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">🌟</div>
-        <div class="star">💫</div>
-        <div class="star">⭐</div>
-        <div class="star">✨</div>
-        <div class="star">🌟</div>
-        <div class="star">💫</div>
+    <!-- النجوم المتلألأة -->
+    <div class="sparkles">
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+        <div class="sparkle">✦</div>
+        <div class="sparkle">✧</div>
+    </div>
+
+    <!-- ألوان الدهانات المتساقطة -->
+    <div class="paint-drops">
+        <div class="paint-drop" style="left: 10%; background: #FF6B6B; animation-delay: 0s;"></div>
+        <div class="paint-drop" style="left: 20%; background: #4ECDC4; animation-delay: 1s;"></div>
+        <div class="paint-drop" style="left: 30%; background: #FFE66D; animation-delay: 2s;"></div>
+        <div class="paint-drop" style="left: 40%; background: #95E1D3; animation-delay: 0.5s;"></div>
+        <div class="paint-drop" style="left: 50%; background: #F38181; animation-delay: 1.5s;"></div>
+        <div class="paint-drop" style="left: 60%; background: #AA96DA; animation-delay: 2.5s;"></div>
+        <div class="paint-drop" style="left: 70%; background: #FCBAD3; animation-delay: 0.8s;"></div>
+        <div class="paint-drop" style="left: 80%; background: #A8D8EA; animation-delay: 1.8s;"></div>
+        <div class="paint-drop" style="left: 90%; background: #FF9F43; animation-delay: 3s;"></div>
     </div>
 
     <div class="container">
-        <div class="logo">
-            <h1>🎨 كاستيللو للدهانات 🎨</h1>
-            <p class="tagline">ألوان brillante للمباني السعيدة</p>
+        <!-- شعار الشركة -->
+        <header class="company-header">
+            <div class="logo-icon">🎨</div>
+            <h1 class="company-name">كاستيللو للدهانات</h1>
+            <p class="tagline">أجود أنواع الدهانات للمباني السعيدة</p>
+        </header>
+
+        <!-- رسالة العيد -->
+        <div class="eid-banner">
+            <div class="banner-content">
+                <span class="sheep">🐑</span>
+                <h2>عيد الأضحى المبارك</h2>
+                <span class="sheep">🐑</span>
+            </div>
+            <p class="eid-wish">كل عام وأنتم بخير وحبوب 🐪</p>
         </div>
 
-        <div class="celebration-box">
-            <div class="fez-icon">🧆</div>
-            <h2>🐑 Eid Mubarak 🐑</h2>
-            <p class="subtitle">كل عام وأنتم بخير وح�</ربا م</p>
-        </div>
-
-        <div class="card" id="greetingCard">
-            <div class="form-header">
-                <span class="icon">🎊</span>
-                <span>أدخل اسمك للتهنئة</span>
-                <span class="icon">🎊</span>
+        <!-- قسم إدخال الاسم -->
+        <div class="card input-card" id="inputCard">
+            <div class="card-header">
+                <span class="gift">🎁</span>
+                <h3>أدخل اسمك для التهنئة</h3>
+                <span class="gift">🎁</span>
             </div>
             
-            <form id="nameForm">
-                <div class="input-group">
-                    <input type="text" id="clientName" placeholder="اسمك الكريم" required>
-                    <span class="input-icon">👤</span>
+            <form id="greetingForm">
+                <div class="input-wrapper">
+                    <input type="text" id="clientName" placeholder="👤 اسمك الكريم" required autocomplete="off">
                 </div>
                 <button type="submit" class="submit-btn">
-                    <span>🎉</span> تهانينا <span>🎉</span>
+                    <span>🎉</span> هنئني <span>🎊</span>
                 </button>
             </form>
         </div>
 
-        <div class="card hidden" id="resultCard">
-            <div class="success-animation">
+        <!-- قسم التهنئة الشخصية -->
+        <div class="card result-card hidden" id="resultCard">
+            <div class="celebration-icons">
                 <span>🎊</span>
                 <span>🎉</span>
+                <span>🎈</span>
+                <span>🎁</span>
                 <span>🎊</span>
             </div>
             
-            <div class="eid-display">
+            <div class="eid-mubarak-box">
                 <h2>🐏عيد الأضحى المبارك🐏</h2>
             </div>
             
-            <h3 class="personal-greeting">
-                كل عام وأنت بخير يا <span id="showName"></span> 🎊✨
-            </h3>
-            
-            <p class="message">
-                من عائلة <strong>كاستيللو للدهانات</strong><br>
-                نتمنى لك أعياداً مليئة بالفرح والسرور<br>
-                وكل لحظاتك تكون 🇸🇦🇸🇦
-            </p>
-            
-            <div class="footer-message">
-                <p>🎈 happy Eid 🎈</p>
+            <div class="personal-message">
+                <h3>كل عام وأنت بخير يا <span id="userName" class="name-highlight"></span> 🎊✨</h3>
             </div>
             
-            <button onclick="resetForm()" class="reset-btn">
-                <span>🎁</span> تهاني جديدة <span>🎁</span>
+            <div class="company-message">
+                <p>من <strong>عائلة كاستيللو للدهانات</strong></p>
+                <p>نتمنى لك أعياداً مليئة بالفرح والسرور 🇸🇦🇸🇦</p>
+            </div>
+            
+            <div class=" blessings">
+                <span>💖</span>
+                <span>🤲</span>
+                <span>🧧</span>
+                <span>✨</span>
+                <span>🌹</span>
+            </div>
+            
+            <button onclick="restart()" class="restart-btn">
+                <span>🔄</span> تهاني جديدة <span>🎁</span>
             </button>
         </div>
 
-        <div class="footer">
-            <p>كاستيللو للدهانات -Painting Excellence🎨</p>
-        </div>
+        <!-- الفوتر -->
+        <footer class="footer">
+            <p>كاستيللو للدهانات 🎨 | Painting Excellence</p>
+        </footer>
     </div>
 
     <script src="script.js"></script>
