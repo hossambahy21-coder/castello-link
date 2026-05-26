@@ -1,100 +1,137 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>عيد أضحى مبارك من دهانات كاستيللو</title>
-  <style>
-    body {
-      font-family: 'Tahoma', sans-serif;
-      background-color: #4b1c2f;
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #7a2f4b;
-      padding: 20px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-    .container {
-      margin-top: 30px;
-    }
-    .card {
-      background-image: url(WhatsApp Image 2026-05-26 at 6.08.10 AM); /* ضع هنا صورة التهنئة */
-      background-size: cover;
-      background-position: center;
-      width: 600px;
-      height: 800px;
-      margin: auto;
-      border-radius: 15px;
-      position: relative;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    }
-    .overlay {
-      position: absolute;
-      bottom: 60px;
-      width: 100%;
-      text-align: center;
-      font-size: 26px;
-      font-weight: bold;
-      color: #ffd700;
-      text-shadow: 2px 2px 5px #000;
-    }
-    input {
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      border: none;
-      margin-top: 20px;
-      width: 250px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      background-color: #ffd700;
-      color: #4b1c2f;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-    button:hover {
-      background-color: #e6c200;
-    }
-    footer {
-      margin-top: 40px;
-      font-size: 16px;
-      color: #ffd700;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تهنئة من شركة كاستيللو للدهانات</title>
+    <style>
+        /* تنسيق الألوان والخلفية */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+        }
+
+        /* كارت التهنئة */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            border-top: 8px solid #d4af37; /* لون ذهبي يعبر عن الفخامة */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* اسم الشركة */
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #718096;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        /* نص التهنئة */
+        h1 {
+            color: #2d3748;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 30px;
+        }
+
+        /* زر تفاعلي */
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 35px;
+            font-size: 1.1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: bold;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(118, 75, 162, 0.4);
+        }
+
+        /* تأثير الألوان المتساقطة */
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
-  <header>عيد أضحى مبارك من دهانات كاستيللو</header>
 
-  <div class="container">
-    <input type="text" id="nameInput" placeholder="اكتب اسمك هنا...">
-    <button onclick="showGreeting()">عرض التهنئة</button>
+    <canvas id="canvas"></canvas>
 
     <div class="card">
-      <div class="overlay" id="greetingText"></div>
+        <!-- هويتك التجارية -->
+        <div class="logo-text">كاستيللو</div>
+        <div class="subtitle">لـلـدهـانــات والـديـكـور</div>
+        
+        <hr style="border: 0; height: 1px; background: #e2e8f0; margin-bottom: 30px;">
+
+        <!-- رسالة التهنئة (تقدر تعدلها حسب المناسبة) -->
+        <h1>كل عام وأنتم بخير! ✨</h1>
+        <p>
+            عملائنا الكرام، شركاء النجاح.. <br>
+            بمناسبة الأيام المباركة، تتمنى لكم عائلة <strong>"كاستيللو"</strong> أوقاتاً مليئة بالبهجة والألوان الجميلة في حياتكم. شكراً لثقتكم الغالية بنا دائماً.
+        </p>
+
+        <!-- زر يضيف بهجة للموقع عند الضغط عليه -->
+        <button class="btn" onclick="celebrate()">اضغط لتلوين يومك 🎨</button>
     </div>
-  </div>
 
-  <footer>
-    شركاء النجاح في دهانات كاستيللو<br>
-    www.castellopaints.com | @castello
-  </footer>
+    <!-- كود الجافا سكريبت لتأثير الألوان الاحتفالية -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script>
+        // تشغيل التأثير تلقائياً عند فتح الصفحة
+        window.onload = function() {
+            celebrate();
+        };
 
-  <script>
-    function showGreeting() {
-      const name = document.getElementById('nameInput').value.trim();
-      const greeting = name
-        ? `عيد أضحى مبارك يا ${name} من دهانات كاستيللو 🌙✨`
-        : 'عيد أضحى مبارك من دهانات كاستيللو 🌙✨';
-      document.getElementById('greetingText').innerText = greeting;
-    }
-  </script>
+        function celebrate() {
+            // إطلاق ألوان مبهجة تناسب شركة دهانات
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#bb0000', '#ffffff', '#00bb00', '#0000bb', '#f1c40f', '#9b59b6']
+            });
+        }
+    </script>
 </body>
 </html>
