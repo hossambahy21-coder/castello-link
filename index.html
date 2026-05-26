@@ -3,107 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عيد أضحى مبارك | كاستيللو</title>
-    
-    <!-- Google Fonts: Cairo -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <title>كاستيللو للدهانات - تهنئة بعيد الأضحى</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-    <!-- Star Background -->
-    <div class="stars-container"></div>
-    <div class="main-wrapper">
-        <header class="header">
-            <div class="logo">
-                <img src="https://i.imgur.com/5wF8X9l.png" alt="Castello Logo" class="logo-img">
-                <span class="logo-text">دهانات كاستيللو</span>
-            </div>
-        </header>
+    <div class="container">
+        <div class="logo">
+            <h1>كاستيللو للدهانات</h1>
+            <p class="tagline">أفضل أنواع الدهانات والطلاءات</p>
+        </div>
 
-        <main class="container">
-            <div class="card-wrapper">
+        <div class="card" id="greetingCard">
+            <div class="content">
+                <h2>🎉 بعيد الأضحى المبارك 🎉</h2>
+                <p class="subtitle">نهنئكم بحلول عيد الأضحى المبارك</p>
                 
-                <!-- Step 1: Welcome & Name Input -->
-                <section id="welcomeSection" class="view-section active">
-                    <div class="icon-circle">
-                        <i class="fa-solid fa-gift"></i>
-                    </div>
-                    <h1>هنيك بالعيد يا باشا!</h1>
-                    <p class="sub-text">كتب اسمك عشان نحولك رسالة تهنئة مخصصة من دهنات كاستيللو.</p>
-                    
-                    <form id="nameForm" class="input-group">
-                        <div class="input-field">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" id="customerName" placeholder="اكتب اسمك هنا..." autocomplete="off" required>
-                        </div>
-                        <button type="submit" class="btn-main">
-                            <span>أنيحلك التهنية</span>
-                            <i class="fa-solid fa-circle-chevron-right"></i>
-                        </button>
-                    </form>
-                </section>
-
-                <!-- Step 2: Greeting Card (Hidden initially) -->
-                <section id="greetingSection" class="view-section fade-out">
-                    <div class="greeting-card animate-pop">
-                        <!-- Decorative Arches -->
-                        <div class="arch-decoration top">
-                            <svg viewBox="0 0 100 100" preserveAspectRatio="none">
-                                <path d="M0,80 Q50,20 100,80 Z" fill="none" stroke="#c5a26d" stroke-width="1"/>
-                            </svg>
-                        </div>
-
-                        <div class="card-content">
-                            <div class="moon-container">
-                                <i class="fa-regular fa-moon moon-icon"></i>
-                            </div>
-
-                            <h2 class="greeting-title">عيد أضحى مبارك</h2>
-                            <div class="divider"></div>
-                            
-                            <div class="greeting-body">
-                                <p class="custom-text">
-                                    أهلاً بك يا <span class="highlight-name">...</span>
-                                </p>
-                                <p class="company-msg">
-                                    من دهنات كاستيللو، نهنئك ونهنىء أسرتك الكريمة بمناسبة عيد الأضحى المبارك.
-                                    <br>
-                                    كل عام وكم بخير، وعيد سعيد مليء بالهناء والبهجة.
-                                </p>
-                            </div>
-
-                            <div class="card-footer">
-                                <p class="tagline">شركاء النجاح في دهنات كاستيللو</p>
-                            </div>
-                        </div>
-
-                        <div class="action-area">
-                            <p class="action-text">إيه اللي عايز تروح؟</p>
-                            <div class="actions-buttons">
-                                <a href="#" id="shareWhatsapp" target="_blank" class="btn-action whatsapp">
-                                    <i class="fa-brands fa-whatsapp"></i> واتساب
-                                </a>
-                                <button id="captureBtn" class="btn-action screenshot">
-                                    <i class="fa-solid fa-camera"></i> الصورة
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+                <form id="nameForm">
+                    <input type="text" id="clientName" placeholder="أدخل اسمك هنا" required>
+                    <button type="submit">🎊 تهانينا لك</button>
+                </form>
             </div>
-        </main>
+        </div>
 
-        <footer>
-            <p>© 2024 كاستيللو - جميع الحقوق محفوظة</p>
-        </footer>
+        <div class="card hidden" id="resultCard">
+            <div class="content">
+                <div class="eid-mubarak">🐏عيد الأضحى المبارك🐏</div>
+                <h2 class="personal-greeting">
+                    كل عام وأنتم بخير يا <span id="showName"></span> 🎊
+                </h2>
+                <p class="message">
+                    من عائلة كاستيللو للدهانات<br>
+                    نتمنى لكم أعياداً مليئة بالفرح والسرور
+                </p>
+                <button onclick="resetForm()" class="reset-btn">🎁 تهاني جديدة</button>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
