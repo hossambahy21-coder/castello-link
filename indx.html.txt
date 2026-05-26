@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كاستيللو - عيد أضحى مبارك</title>
+    
+    <!-- Google Fonts: Cairo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        castillo: {
+                            primary: '#f472b6',   
+                            secondary: '#fbcfe8', 
+                            dark: '#831843',
+                            soft: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-cairo bg-castillo-soft text-gray-800 overflow-x-hidden relative">
+
+    <!-- Intro Logo Loader -->
+    <div id="logoLoader" class="fixed inset-0 z-[100] bg-castillo-soft flex flex-col items-center justify-center transition-opacity duration-1000">
+        <div class="relative">
+            <!-- Abstract Logo Shape (Representing Castillo) -->
+            <div class="w-24 h-24 md:w-32 md:h-32 bg-gradient-to-tr from-castillo-primary to-purple-600 rounded-full flex items-center justify-center animate-spin-slow shadow-2xl shadow-castillo-primary/50">
+                <i class="fas fa-cube text-white text-4xl md:text-5xl"></i>
+            </div>
+            <!-- Text Below -->
+            <div class="mt-4 text-center animate-fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-bold text-castillo-dark">Castello</h2>
+                <p class="text-sm md:text-base text-gray-500 mt-1">دهانات كاستيللو</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Background Floating Elements Container -->
+    <div id="particles-container" class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none overflow-hidden">
+        <!-- Will be populated by JS -->
+    </div>
+
+    <!-- Navbar -->
+    <nav class="relative z-50 w-full py-6 px-4 md:px-12 flex justify-between items-center">
+        <div class="text-2xl md:text-3xl font-extrabold text-castillo-primary tracking-tighter">
+            <i class="fas fa-shapes ml-2"></i> كاستيللو
+        </div>
+        <div class="hidden md:flex gap-6 text-castillo-dark font-semibold">
+            <a href="#" class="hover:text-castillo-primary transition">الرئيسية</a>
+            <a href="#" class="hover:text-castillo-primary transition">قصتنا</a>
+            <a href="#" class="hover:text-castillo-primary transition">تواصل معنا</a>
+        </div>
+        <button class="bg-castillo-primary text-white px-6 py-2 rounded-full shadow-lg shadow-pink-300 hover:shadow-pink-500 transition transform hover:-translate-y-1">
+            تهاني خاصة
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative z-10 flex flex-col items-center justify-center min-h-[90vh] px-4 text-center">
+        
+        <!-- Elevation Glow Background -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-castillo-secondary rounded-full opacity-40 blur-3xl filter -z-10 animate-pulse-slow"></div>
+
+        <!-- Main Heading -->
+        <div class="mb-6 transform hover:scale-105 transition duration-500">
+            <span class="bg-white px-4 py-1 rounded-full shadow-sm text-castillo-primary text-sm font-bold border border-castillo-secondary">
+                🌙 هنيئة من أسرة كاستيللو
+            </span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-extrabold text-castillo-dark leading-tight mb-6 drop-shadow-sm">
+            كل عام وأنتِ <br>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-castillo-primary to-purple-500" id="namePlaceholder">بالألف خير يا أسمى</span>
+            <br> أعيادكم طيبة
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mb-10 leading-relaxed">
+            بمناسبة عيد الأضحى المبارك، نتمنى لكل عملائنا الكرام الصحة والعافية، 
+            وسعادة لا تنتهي، وأن يكون عيدكم مليئاً بالهنا والهناء والبركات.
+        </p>
+
+        <!-- Personalized Greeting Display (Hidden initially) -->
+        <div id="personalizedGreeting" class="hidden mb-10 pt-4 border-t border-castillo-secondary/50">
+            <p class="text-xl font-bold text-castillo-primary">
+                كل عام وأنتم بألف خير، يا <span id="displayUserName" class="text-castillo-dark border-b-2 border-castillo-primary">العميل</span>!
+            </p>
+            <p class="text-gray-500 mt-2">شكراً لاختياركم كاستيللو</p>
+        </div>
+
+        <!-- CTA Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full">
+            
+            <!-- Card 1 -->
+            <div class="card-3d bg-white/80 backdrop-blur-sm border border-castillo-secondary p-8 rounded-3xl shadow-xl hover:rotate-y-3 transition duration-300 cursor-pointer group">
+                <div class="w-16 h-16 bg-castillo-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-castillo-primary group-hover:text-white text-castillo-primary transition">
+                    <i class="fas fa-quran text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-castillo-dark mb-2">تقبل الله منا ومنكم</h3>
+                <p class="text-gray-600 text-sm">نسألكم الدعاء والقبول في هذا اليوم المبارك.</p>
+                <div class="mt-4 text-castillo-primary opacity-0 group-hover:opacity-100 transition transform translate-x-2 group-hover:translate-x-0">
+                    <i class="fas fa-arrow-left"></i> إرسال التهاني
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card-3d bg-white/80 backdrop-blur-sm border border-castillo-secondary p-8 rounded-3xl shadow-xl hover:rotate-y-3 transition duration-300 cursor-pointer group">
+                <div class="w-16 h-16 bg-castillo-secondary/50 rounded-full flex items-center justify-center mb-4 mx-auto group-hover:bg-castillo-primary group-hover:text-white transition">
+                    <i class="fas fa-star text-2xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-castillo-dark mb-2">عرض خاص بالعيد</h3>
+                <p class="text-gray-600 text-sm">خصم ٢٠٪ لجميع منتجاتنا المميزة خلال أيام العيد.</p>
+                <div class="mt-4 text-castillo-primary opacity-0 group-hover:opacity-100 transition transform translate-x-2 group-hover:translate-x-0">
+                    <i class="fas fa-shopping-bag"></i> اكتشف العروض
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Decoration Text -->
+    <div class="relative z-10 py-20 px-4 text-center">
+        <h2 class="text-4xl font-bold text-castillo-primary mb-2">✨</h2>
+        <p class="text-castillo-dark text-lg font-semibold">شكراً لأنكم جزء من قصة كاستيللو</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="relative z-50 bg-white/50 backdrop-blur-md border-t border-castillo-secondary py-8 text-center">
+        <div class="flex justify-center gap-8 mb-4 text-2xl text-castillo-dark">
+            <a href="https://facebook.com" target="blank" class="hover:text-castillo-primary transition transform hover:scale-110">
+                <i class="fab fa-facebook-f"></i>
+                <span class="text-sm mr-2">Castello Facebook</span>
+            </a>
+            <a href="https://castello.com" target="blank" class="hover:text-castillo-primary transition transform hover:scale-110">
+                <i class="fas fa-globe"></i>
+                <span class="text-sm mr-2">Castello Website</span>
+            </a>
+        </div>
+        <p class="text-gray-600 font-semibold text-sm">
+            © 2024 Castello Company. All rights reserved 🇪🇬
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
