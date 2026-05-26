@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>كاستيللو للدهانات - تهنئة بعيد الاضحى</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,41 +15,61 @@
         body {
             font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            /* 👈 حط رابط الصورة هنا */
+            background-image: url('https://images.unsplash.com/photo-1539540869520-14b2105b375b?w=1920');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
         }
 
+        /* طبقة شفافة فوق الصورة */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.85) 0%, rgba(22, 33, 62, 0.75) 50%, rgba(15, 52, 96, 0.85) 100%);
+            z-index: -1;
+        }
+
         .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
             border-radius: 30px;
             padding: 50px 40px;
-            max-width: 600px;
+            max-width: 650px;
             width: 100%;
             text-align: center;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.25);
         }
 
         .logo {
-            font-size: 50px;
+            font-size: 80px;
             margin-bottom: 10px;
         }
 
         h1 {
             color: #fff;
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
-            font-weight: 700;
+            font-weight: 900;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .subtitle {
             color: #ffd700;
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
         }
 
         .company-name {
@@ -57,117 +78,155 @@
         }
 
         .form-container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 35px 30px;
+            border-radius: 25px;
             margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .form-container h2 {
             color: #fff;
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 22px;
+            margin-bottom: 25px;
+            font-weight: 700;
         }
 
         input[type="text"] {
             width: 100%;
             padding: 18px 25px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.4);
             border-radius: 50px;
             font-size: 18px;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.15);
             color: #fff;
             outline: none;
             transition: all 0.3s ease;
             text-align: center;
+            font-family: 'Cairo', sans-serif;
         }
 
         input[type="text"]::placeholder {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
         }
 
         input[type="text"]:focus {
             border-color: #e94560;
-            box-shadow: 0 0 20px rgba(233, 69, 96, 0.3);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 0 25px rgba(233, 69, 96, 0.4);
         }
 
         button {
             background: linear-gradient(135deg, #e94560, #c73e54);
             color: #fff;
             border: none;
-            padding: 18px 50px;
+            padding: 18px 55px;
             border-radius: 50px;
             font-size: 20px;
             font-weight: bold;
             cursor: pointer;
             margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5);
+            font-family: 'Cairo', sans-serif;
         }
 
         button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.5);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.6);
         }
 
         .greeting-box {
             display: none;
             background: linear-gradient(135deg, #ffd700, #ffed4a);
-            padding: 40px 30px;
-            border-radius: 20px;
+            padding: 45px 35px;
+            border-radius: 25px;
             margin-top: 30px;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.6s ease;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
+            from { opacity: 0; transform: scale(0.8) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
         }
 
         .greeting-box h2 {
             color: #1a1a2e;
-            font-size: 30px;
-            margin-bottom: 15px;
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 900;
         }
 
         .greeting-box p {
             color: #333;
             font-size: 20px;
-            line-height: 1.8;
+            line-height: 2;
         }
 
         .greeting-box .company {
             color: #e94560;
             font-weight: bold;
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .greeting-box .user-name {
             color: #1a1a2e;
             font-weight: bold;
-            font-size: 28px;
+            font-size: 30px;
         }
 
         .lantern {
-            font-size: 60px;
-            margin-bottom: 10px;
+            font-size: 70px;
+            margin-bottom: 15px;
         }
 
         .footer {
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.7);
             margin-top: 30px;
             font-size: 14px;
+            line-height: 1.8;
         }
 
         .back-btn {
             background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            margin-top: 20px;
+            border: 2px solid rgba(0, 0, 0, 0.2);
+            color: #333;
+            margin-top: 25px;
             box-shadow: none;
         }
 
         .back-btn:hover {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.1);
+        }
+
+        /* للشاشات الصغيرة */
+        @media (max-width: 600px) {
+            .container {
+                padding: 35px 25px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .logo {
+                font-size: 60px;
+            }
+            
+            .form-container {
+                padding: 25px 20px;
+            }
+            
+            input[type="text"] {
+                font-size: 16px;
+                padding: 15px 20px;
+            }
+            
+            button {
+                font-size: 18px;
+                padding: 15px 40px;
+            }
         }
     </style>
 </head>
@@ -197,7 +256,7 @@
 
         <div class="footer">
             🏠 العنوان: [عنوان الشركة]<br>
-            📞 الهاتف: [رقم الهاتف]
+            📞 الهاتف: [رقم الهاتف] | 📧 الايميل: [email@company.com]
         </div>
     </div>
 
